@@ -1,0 +1,164 @@
+relationship 21fe3ff3-a555-4e3a-a292-ed349e08fe9f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'nestasia_dwh dim_campaign'.start_date
+	toColumn: LocalDateTable_3777c3c1-ffac-4a38-ba22-4013cd6b5004.Date
+
+relationship 80babd5b-2e6a-417c-bc0a-f822d6ff6dfe
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'nestasia_dwh dim_campaign'.end_date
+	toColumn: LocalDateTable_dece8222-e516-4d7d-a3ae-706da850e0ed.Date
+
+relationship 8af90abf-e4f2-44f7-a9bc-57c93682396a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'nestasia_dwh dim_customer'.signup_date
+	toColumn: LocalDateTable_f1de68aa-425e-4253-8390-a07f3ed46b8c.Date
+
+relationship 25e7673a-cd1f-466f-bf6d-2de08861887f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'nestasia_dwh dim_product'.launch_date
+	toColumn: LocalDateTable_ac515b31-db2c-4955-8420-a60c266cf1f5.Date
+
+relationship 531bf22f-40cc-4adb-b938-a1c309d38c74
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'nestasia_dwh fact_marketing'.campaign_sk
+	toColumn: 'nestasia_dwh dim_campaign'.campaign_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7498b432-8e3f-4a1e-950d-d4ca243bfc02
+	fromColumn: 'nestasia_dwh fact_payments'.customer_sk
+	toColumn: 'nestasia_dwh dim_customer'.customer_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship b796e69d-8e10-4d15-9f1e-4cf6a4601c03
+	fromColumn: 'nestasia_dwh fact_returns'.customer_sk
+	toColumn: 'nestasia_dwh dim_customer'.customer_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship a9d8401a-8427-45e8-926f-f5528a82c6d3
+	fromColumn: 'nestasia_dwh fact_reviews'.customer_sk
+	toColumn: 'nestasia_dwh dim_customer'.customer_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5187e785-fab3-4b98-9824-ce817bf9697b
+	fromColumn: 'nestasia_dwh fact_sales'.customer_sk
+	toColumn: 'nestasia_dwh dim_customer'.customer_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 09f66ad4-018b-4f4c-a70e-fd90d86beb11
+	fromColumn: 'nestasia_dwh fact_shipping'.customer_sk
+	toColumn: 'nestasia_dwh dim_customer'.customer_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 861758da-0e66-4752-bc6a-3f36c35638f3
+	fromColumn: 'nestasia_dwh fact_inventory'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship f5ba3c3f-8996-452b-887f-ef57bcc7592f
+	fromColumn: 'nestasia_dwh fact_marketing'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 78f949ed-2ded-47d7-8ba3-931dd6efd41d
+	fromColumn: 'nestasia_dwh fact_payments'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 821bbb19-65c5-4ce9-939c-42870daf4227
+	fromColumn: 'nestasia_dwh fact_returns'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 885632e1-92bf-45ca-bc9a-56a107e22b3a
+	fromColumn: 'nestasia_dwh fact_reviews'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0291b607-0616-4073-8c4b-e888f01a50c0
+	fromColumn: 'nestasia_dwh fact_sales'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 39a8232d-acce-4a5f-be5d-53cf1b02eb02
+	fromColumn: 'nestasia_dwh fact_shipping'.date_sk
+	toColumn: 'nestasia_dwh dim_date'.date_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship ab4abbdf-6221-441c-b2d2-549a548f22bd
+	fromColumn: 'nestasia_dwh fact_sales'.geography_sk
+	toColumn: 'nestasia_dwh dim_geography'.geography_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship a64f8a0c-d507-458a-9409-d5ec6ec176c9
+	fromColumn: 'nestasia_dwh fact_sales'.payment_sk
+	toColumn: 'nestasia_dwh dim_payment'.payment_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 261fb37b-1bea-4785-a48a-9ebd60a34699
+	isActive: false
+	fromColumn: 'nestasia_dwh fact_returns'.product_sk
+	toColumn: 'nestasia_dwh dim_product'.product_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 06390148-e228-4ac4-838b-4b190524dbeb
+	fromColumn: 'nestasia_dwh fact_sales'.product_sk
+	toColumn: 'nestasia_dwh dim_product'.product_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship 639505ce-e168-43bd-b51d-ccb3c473c044
+	fromColumn: 'nestasia_dwh fact_sales'.seller_sk
+	toColumn: 'nestasia_dwh dim_seller'.seller_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship b6277184-50fd-4a6c-9926-1b7f9cb7b521
+	fromColumn: 'nestasia_dwh fact_shipping'.seller_sk
+	toColumn: 'nestasia_dwh dim_seller'.seller_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship b58fc85b-603a-4635-8dfc-2c7e6099a423
+	fromColumn: 'nestasia_dwh fact_inventory'.warehouse_sk
+	toColumn: 'nestasia_dwh dim_warehouse'.warehouse_sk
+
+	annotation PBI_IsFromSource = FS
+
+relationship b2aeb6b7-67e9-f30c-c346-5312cb2f0a9a
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'nestasia_dwh fact_shipping'.shipping_sk
+	toColumn: 'nestasia_dwh dim_shipping'.shipping_sk
+
+relationship 6c7a043f-3b4b-6b08-e16d-137085a894b9
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'nestasia_dwh customer_mapping'.customer_id
+	toColumn: 'nestasia_dwh dim_customer'.customer_id
+
+relationship 49db6804-8414-7153-92fc-368eb7c70f69
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: olist_products_dataset.product_id
+	toColumn: 'nestasia_dwh dim_product'.product_id
+
+relationship 33566f2f-810d-3c30-c5b9-7dbd0cbf9e0b
+	fromColumn: olist_products_dataset.product_category_name
+	toColumn: 'nestasia_dwh dim_category'.category_name
+

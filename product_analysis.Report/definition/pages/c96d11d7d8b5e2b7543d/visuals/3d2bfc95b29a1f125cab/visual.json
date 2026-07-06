@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "3d2bfc95b29a1f125cab",
+  "position": {
+    "x": 639.72452806985189,
+    "y": 414.72954969357852,
+    "z": 4003,
+    "height": 280.40418946893772,
+    "width": 611.18038902211572,
+    "tabOrder": 4003
+  },
+  "visual": {
+    "visualType": "ribbonChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "nestasia_dwh dim_customer"
+                    }
+                  },
+                  "Property": "preferred_channel"
+                }
+              },
+              "queryRef": "nestasia_dwh dim_customer.preferred_channel",
+              "nativeQueryRef": "preferred_channel",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": []
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "nestasia_dwh dim_customer"
+                    }
+                  },
+                  "Property": "income_segment"
+                }
+              },
+              "queryRef": "nestasia_dwh dim_customer.income_segment",
+              "nativeQueryRef": "income_segment"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Orders"
+                }
+              },
+              "queryRef": "_Measures.Total Orders",
+              "nativeQueryRef": "Total Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Orders"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

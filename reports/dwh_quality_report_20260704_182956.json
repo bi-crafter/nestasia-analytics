@@ -1,0 +1,425 @@
+{
+    "generated_at": "2026-07-04T18:29:56.827730",
+    "star_schema_tables": {
+        "Dim_Geography": {
+            "rows": 19015,
+            "columns": 4,
+            "missing_values": {
+                "zip_code": 0,
+                "city": 0,
+                "state": 0,
+                "geography_sk": 0
+            },
+            "missing_percentage": {
+                "zip_code": 0.0,
+                "city": 0.0,
+                "state": 0.0,
+                "geography_sk": 0.0
+            }
+        },
+        "Dim_Date": {
+            "rows": 1138,
+            "columns": 8,
+            "missing_values": {
+                "full_date": 0,
+                "date_sk": 0,
+                "year": 0,
+                "month": 0,
+                "day": 0,
+                "quarter": 0,
+                "day_of_week": 0,
+                "is_weekend": 0
+            },
+            "missing_percentage": {
+                "full_date": 0.0,
+                "date_sk": 0.0,
+                "year": 0.0,
+                "month": 0.0,
+                "day": 0.0,
+                "quarter": 0.0,
+                "day_of_week": 0.0,
+                "is_weekend": 0.0
+            }
+        },
+        "Dim_Category": {
+            "rows": 71,
+            "columns": 3,
+            "missing_values": {
+                "category_name": 0,
+                "category_name_english": 0,
+                "category_sk": 0
+            },
+            "missing_percentage": {
+                "category_name": 0.0,
+                "category_name_english": 0.0,
+                "category_sk": 0.0
+            }
+        },
+        "Dim_Product": {
+            "rows": 32951,
+            "columns": 13,
+            "missing_values": {
+                "product_id": 0,
+                "sku": 0,
+                "brand": 0,
+                "collection": 0,
+                "material": 0,
+                "color": 0,
+                "size": 0,
+                "supplier": 0,
+                "cost_price": 0,
+                "mrp": 0,
+                "launch_date": 0,
+                "product_status": 0,
+                "product_sk": 0
+            },
+            "missing_percentage": {
+                "product_id": 0.0,
+                "sku": 0.0,
+                "brand": 0.0,
+                "collection": 0.0,
+                "material": 0.0,
+                "color": 0.0,
+                "size": 0.0,
+                "supplier": 0.0,
+                "cost_price": 0.0,
+                "mrp": 0.0,
+                "launch_date": 0.0,
+                "product_status": 0.0,
+                "product_sk": 0.0
+            }
+        },
+        "Dim_Customer": {
+            "rows": 99441,
+            "columns": 14,
+            "missing_values": {
+                "customer_id": 0,
+                "gender": 0,
+                "age": 0,
+                "age_group": 0,
+                "income_segment": 0,
+                "city": 0,
+                "state": 0,
+                "country": 0,
+                "loyalty_tier": 0,
+                "signup_date": 0,
+                "preferred_channel": 0,
+                "customer_segment": 0,
+                "estimated_clv": 0,
+                "customer_sk": 0
+            },
+            "missing_percentage": {
+                "customer_id": 0.0,
+                "gender": 0.0,
+                "age": 0.0,
+                "age_group": 0.0,
+                "income_segment": 0.0,
+                "city": 0.0,
+                "state": 0.0,
+                "country": 0.0,
+                "loyalty_tier": 0.0,
+                "signup_date": 0.0,
+                "preferred_channel": 0.0,
+                "customer_segment": 0.0,
+                "estimated_clv": 0.0,
+                "customer_sk": 0.0
+            }
+        },
+        "Dim_Seller": {
+            "rows": 3095,
+            "columns": 5,
+            "missing_values": {
+                "seller_id": 0,
+                "seller_zip_code_prefix": 0,
+                "seller_city": 0,
+                "seller_state": 0,
+                "seller_sk": 0
+            },
+            "missing_percentage": {
+                "seller_id": 0.0,
+                "seller_zip_code_prefix": 0.0,
+                "seller_city": 0.0,
+                "seller_state": 0.0,
+                "seller_sk": 0.0
+            }
+        },
+        "Dim_Warehouse": {
+            "rows": 4,
+            "columns": 11,
+            "missing_values": {
+                "warehouse_id": 0,
+                "warehouse_name": 0,
+                "city": 0,
+                "state": 0,
+                "country": 0,
+                "capacity": 0,
+                "manager": 0,
+                "warehouse_type": 0,
+                "latitude": 0,
+                "longitude": 0,
+                "warehouse_sk": 0
+            },
+            "missing_percentage": {
+                "warehouse_id": 0.0,
+                "warehouse_name": 0.0,
+                "city": 0.0,
+                "state": 0.0,
+                "country": 0.0,
+                "capacity": 0.0,
+                "manager": 0.0,
+                "warehouse_type": 0.0,
+                "latitude": 0.0,
+                "longitude": 0.0,
+                "warehouse_sk": 0.0
+            }
+        },
+        "Dim_Campaign": {
+            "rows": 200,
+            "columns": 7,
+            "missing_values": {
+                "campaign_id": 0,
+                "campaign_name": 0,
+                "channel": 0,
+                "campaign_type": 0,
+                "start_date": 0,
+                "end_date": 0,
+                "campaign_sk": 0
+            },
+            "missing_percentage": {
+                "campaign_id": 0.0,
+                "campaign_name": 0.0,
+                "channel": 0.0,
+                "campaign_type": 0.0,
+                "start_date": 0.0,
+                "end_date": 0.0,
+                "campaign_sk": 0.0
+            }
+        },
+        "Dim_Payment": {
+            "rows": 5,
+            "columns": 2,
+            "missing_values": {
+                "payment_type": 0,
+                "payment_sk": 0
+            },
+            "missing_percentage": {
+                "payment_type": 0.0,
+                "payment_sk": 0.0
+            }
+        },
+        "Dim_Shipping": {
+            "rows": 4,
+            "columns": 3,
+            "missing_values": {
+                "carrier": 0,
+                "shipping_method": 0,
+                "shipping_sk": 0
+            },
+            "missing_percentage": {
+                "carrier": 0.0,
+                "shipping_method": 0.0,
+                "shipping_sk": 0.0
+            }
+        },
+        "Fact_Sales": {
+            "rows": 112650,
+            "columns": 20,
+            "missing_values": {
+                "sales_sk": 0,
+                "order_id": 0,
+                "order_item_id": 0,
+                "date_sk": 0,
+                "customer_sk": 0,
+                "seller_sk": 0,
+                "product_sk": 0,
+                "payment_sk": 0,
+                "geography_sk": 253,
+                "quantity": 0,
+                "unit_price": 0,
+                "discount": 0,
+                "freight_value": 0,
+                "cost_price": 0,
+                "gross_sales": 0,
+                "net_sales": 0,
+                "profit": 0,
+                "margin": 0,
+                "delivery_days": 2454,
+                "is_delivered": 0
+            },
+            "missing_percentage": {
+                "sales_sk": 0.0,
+                "order_id": 0.0,
+                "order_item_id": 0.0,
+                "date_sk": 0.0,
+                "customer_sk": 0.0,
+                "seller_sk": 0.0,
+                "product_sk": 0.0,
+                "payment_sk": 0.0,
+                "geography_sk": 0.224589436307146,
+                "quantity": 0.0,
+                "unit_price": 0.0,
+                "discount": 0.0,
+                "freight_value": 0.0,
+                "cost_price": 0.0,
+                "gross_sales": 0.0,
+                "net_sales": 0.0,
+                "profit": 0.0,
+                "margin": 0.0,
+                "delivery_days": 2.1784287616511318,
+                "is_delivered": 0.0
+            }
+        },
+        "Fact_Inventory": {
+            "rows": 32951,
+            "columns": 10,
+            "missing_values": {
+                "inventory_sk": 0,
+                "date_sk": 0,
+                "warehouse_sk": 0,
+                "product_sk": 0,
+                "opening_stock": 0,
+                "received_stock": 0,
+                "sold_stock": 0,
+                "damaged_stock": 0,
+                "closing_stock": 0,
+                "inventory_value": 0
+            },
+            "missing_percentage": {
+                "inventory_sk": 0.0,
+                "date_sk": 0.0,
+                "warehouse_sk": 0.0,
+                "product_sk": 0.0,
+                "opening_stock": 0.0,
+                "received_stock": 0.0,
+                "sold_stock": 0.0,
+                "damaged_stock": 0.0,
+                "closing_stock": 0.0,
+                "inventory_value": 0.0
+            }
+        },
+        "Fact_Marketing": {
+            "rows": 200,
+            "columns": 11,
+            "missing_values": {
+                "marketing_sk": 0,
+                "campaign_sk": 0,
+                "date_sk": 0,
+                "spend": 0,
+                "impressions": 0,
+                "clicks": 0,
+                "ctr": 0,
+                "conversions": 0,
+                "revenue": 0,
+                "roas": 0,
+                "cpa": 0
+            },
+            "missing_percentage": {
+                "marketing_sk": 0.0,
+                "campaign_sk": 0.0,
+                "date_sk": 0.0,
+                "spend": 0.0,
+                "impressions": 0.0,
+                "clicks": 0.0,
+                "ctr": 0.0,
+                "conversions": 0.0,
+                "revenue": 0.0,
+                "roas": 0.0,
+                "cpa": 0.0
+            }
+        },
+        "Fact_Returns": {
+            "rows": 542,
+            "columns": 8,
+            "missing_values": {
+                "return_sk": 0,
+                "date_sk": 0,
+                "customer_sk": 0,
+                "product_sk": 0,
+                "reason": 0,
+                "return_value": 0,
+                "refund_amount": 0,
+                "days_to_return": 0
+            },
+            "missing_percentage": {
+                "return_sk": 0.0,
+                "date_sk": 0.0,
+                "customer_sk": 0.0,
+                "product_sk": 0.0,
+                "reason": 0.0,
+                "return_value": 0.0,
+                "refund_amount": 0.0,
+                "days_to_return": 0.0
+            }
+        },
+        "Fact_Reviews": {
+            "rows": 99224,
+            "columns": 7,
+            "missing_values": {
+                "review_sk": 0,
+                "date_sk": 0,
+                "customer_sk": 0,
+                "product_sk": 759,
+                "review_score": 0,
+                "sentiment_score": 0,
+                "review_length": 0
+            },
+            "missing_percentage": {
+                "review_sk": 0.0,
+                "date_sk": 0.0,
+                "customer_sk": 0.0,
+                "product_sk": 0.7649359026042086,
+                "review_score": 0.0,
+                "sentiment_score": 0.0,
+                "review_length": 0.0
+            }
+        },
+        "Fact_Payments": {
+            "rows": 103886,
+            "columns": 6,
+            "missing_values": {
+                "payment_sk": 0,
+                "date_sk": 0,
+                "customer_sk": 0,
+                "payment_type": 0,
+                "installments": 0,
+                "payment_value": 0
+            },
+            "missing_percentage": {
+                "payment_sk": 0.0,
+                "date_sk": 0.0,
+                "customer_sk": 0.0,
+                "payment_type": 0.0,
+                "installments": 0.0,
+                "payment_value": 0.0
+            }
+        },
+        "Fact_Shipping": {
+            "rows": 112650,
+            "columns": 10,
+            "missing_values": {
+                "shipping_sk": 0,
+                "date_sk": 0,
+                "seller_sk": 0,
+                "customer_sk": 0,
+                "carrier": 0,
+                "shipping_method": 0,
+                "shipping_cost": 0,
+                "estimated_days": 2454,
+                "actual_days": 2454,
+                "late_delivery": 0
+            },
+            "missing_percentage": {
+                "shipping_sk": 0.0,
+                "date_sk": 0.0,
+                "seller_sk": 0.0,
+                "customer_sk": 0.0,
+                "carrier": 0.0,
+                "shipping_method": 0.0,
+                "shipping_cost": 0.0,
+                "estimated_days": 2.1784287616511318,
+                "actual_days": 2.1784287616511318,
+                "late_delivery": 0.0
+            }
+        }
+    }
+}

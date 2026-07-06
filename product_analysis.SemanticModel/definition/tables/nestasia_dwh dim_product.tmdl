@@ -1,0 +1,131 @@
+table 'nestasia_dwh dim_product'
+	lineageTag: 5fc377fa-cd8c-4053-8560-bcfbbd968bfe
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 38e3e865-58dc-4362-b2db-a5e641a7e8b7
+		summarizeBy: none
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: 75b096d5-5b8e-4f02-876b-17cc116c0efa
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku
+		dataType: string
+		lineageTag: bce46fd7-aff0-4af3-bd65-c3c2be225ea1
+		summarizeBy: none
+		sourceColumn: sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: dc64cb89-3437-444d-87c9-00a7eac37cb9
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column collection
+		dataType: string
+		lineageTag: 8fdf6935-7286-4125-8141-047ff858a459
+		summarizeBy: none
+		sourceColumn: collection
+
+		annotation SummarizationSetBy = Automatic
+
+	column material
+		dataType: string
+		lineageTag: 057841b3-6c6c-4cc5-a309-888e67e7a5aa
+		summarizeBy: none
+		sourceColumn: material
+
+		annotation SummarizationSetBy = Automatic
+
+	column color
+		dataType: string
+		lineageTag: 02e6dd91-5fa5-425a-a352-0ad041f58730
+		summarizeBy: none
+		sourceColumn: color
+
+		annotation SummarizationSetBy = Automatic
+
+	column size
+		dataType: string
+		lineageTag: 1b62feaa-5826-4f55-b4b3-a4a923c47faf
+		summarizeBy: none
+		sourceColumn: size
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier
+		dataType: string
+		lineageTag: 660164f5-1715-4f95-b077-42bf3ca91276
+		summarizeBy: none
+		sourceColumn: supplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_price
+		dataType: double
+		lineageTag: 986c312a-d149-4e16-87cc-08217570dc56
+		summarizeBy: sum
+		sourceColumn: cost_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mrp
+		dataType: double
+		lineageTag: 0f4ef940-8e67-418f-8c67-8f4805f318f9
+		summarizeBy: sum
+		sourceColumn: mrp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column launch_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 104d7bda-d7e5-430c-bafe-8ecacc4bac0a
+		summarizeBy: none
+		sourceColumn: launch_date
+
+		variation Variation
+			isDefault
+			relationship: 25e7673a-cd1f-466f-bf6d-2de08861887f
+			defaultHierarchy: LocalDateTable_ac515b31-db2c-4955-8420-a60c266cf1f5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column product_status
+		dataType: string
+		lineageTag: eb66ff27-7bbb-4882-b14a-6574b2354544
+		summarizeBy: none
+		sourceColumn: product_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh dim_product' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_dim_product = Source{[Schema="nestasia_dwh",Item="dim_product"]}[Data]
+				in
+				    nestasia_dwh_dim_product
+
+	annotation PBI_ResultType = Table
+

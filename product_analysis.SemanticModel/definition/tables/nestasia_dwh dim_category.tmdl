@@ -1,0 +1,39 @@
+table 'nestasia_dwh dim_category'
+	lineageTag: c2665569-ae74-4b04-8765-649798c10cab
+
+	column category_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: c8363718-8bda-4f33-b3f7-2571a490dda2
+		summarizeBy: none
+		sourceColumn: category_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: 1e1dd416-83be-4e69-aabb-0660b1194f0d
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name_english
+		dataType: string
+		lineageTag: 508ec46e-66a2-408b-b08f-bc86caf75f12
+		summarizeBy: none
+		sourceColumn: category_name_english
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh dim_category' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_dim_category = Source{[Schema="nestasia_dwh",Item="dim_category"]}[Data]
+				in
+				    nestasia_dwh_dim_category
+
+	annotation PBI_ResultType = Table
+

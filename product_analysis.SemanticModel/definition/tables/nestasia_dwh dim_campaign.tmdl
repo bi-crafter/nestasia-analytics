@@ -1,0 +1,87 @@
+table 'nestasia_dwh dim_campaign'
+	lineageTag: ed461f8e-1b54-41e5-8f5e-426ff27b8579
+
+	column campaign_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: b13fdb1f-aa3c-4275-8943-d55683aa9b60
+		summarizeBy: none
+		sourceColumn: campaign_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_id
+		dataType: string
+		lineageTag: ed6384ac-f303-4d10-ad1a-39572f39daad
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_name
+		dataType: string
+		lineageTag: e54288a7-2baf-4b2e-aa1c-9f660db9fecd
+		summarizeBy: none
+		sourceColumn: campaign_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: c614dcfc-91c0-4291-8aad-caa4260f25d2
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_type
+		dataType: string
+		lineageTag: d701879d-a3fb-4adf-b3ab-acae0b3dd4f6
+		summarizeBy: none
+		sourceColumn: campaign_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5aae28f3-1a6a-41d8-b404-b2a93b05b156
+		summarizeBy: none
+		sourceColumn: start_date
+
+		variation Variation
+			isDefault
+			relationship: 21fe3ff3-a555-4e3a-a292-ed349e08fe9f
+			defaultHierarchy: LocalDateTable_3777c3c1-ffac-4a38-ba22-4013cd6b5004.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a4076c3c-9362-4700-9954-0495e2f785c5
+		summarizeBy: none
+		sourceColumn: end_date
+
+		variation Variation
+			isDefault
+			relationship: 80babd5b-2e6a-417c-bc0a-f822d6ff6dfe
+			defaultHierarchy: LocalDateTable_dece8222-e516-4d7d-a3ae-706da850e0ed.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'nestasia_dwh dim_campaign' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_dim_campaign = Source{[Schema="nestasia_dwh",Item="dim_campaign"]}[Data]
+				in
+				    nestasia_dwh_dim_campaign
+
+	annotation PBI_ResultType = Table
+

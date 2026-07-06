@@ -1,0 +1,47 @@
+table 'nestasia_dwh dim_geography'
+	lineageTag: 4ad7f274-6d3d-49a0-a507-04c33f7328d5
+
+	column geography_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: d575b8fc-563e-4a96-a97d-5a67b1e66f96
+		summarizeBy: none
+		sourceColumn: geography_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip_code
+		dataType: string
+		lineageTag: 70968f12-8843-43ed-a89e-983ea9610b81
+		summarizeBy: none
+		sourceColumn: zip_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: f25b75f0-cef8-4c0d-870b-be256e5b064b
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 91bd8093-97de-4df8-abf6-2b9f2afcb917
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh dim_geography' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_dim_geography = Source{[Schema="nestasia_dwh",Item="dim_geography"]}[Data]
+				in
+				    nestasia_dwh_dim_geography
+
+	annotation PBI_ResultType = Table
+

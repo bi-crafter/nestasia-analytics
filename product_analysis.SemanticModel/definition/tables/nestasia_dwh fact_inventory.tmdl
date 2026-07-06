@@ -1,0 +1,105 @@
+table 'nestasia_dwh fact_inventory'
+	lineageTag: b68dece0-d779-4af1-9e6e-d5b8e3cb6cbb
+
+	column inventory_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: ce4790a7-2aa8-4490-889b-b84babab004e
+		summarizeBy: sum
+		sourceColumn: inventory_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: c8629528-f35d-4ec2-b1fa-a658e09e3e9a
+		summarizeBy: none
+		sourceColumn: date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 12f6cbd0-91e4-42fe-8f16-4c5d1ad4650a
+		summarizeBy: none
+		sourceColumn: warehouse_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 1404f807-2301-4fa1-8cba-e696873819f6
+		summarizeBy: sum
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column opening_stock
+		dataType: int64
+		formatString: 0
+		lineageTag: 34ded238-20d9-4052-8ae7-097f133331b0
+		summarizeBy: sum
+		sourceColumn: opening_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_stock
+		dataType: int64
+		formatString: 0
+		lineageTag: 21b63e69-9dd5-45c8-a58e-f794b804c333
+		summarizeBy: sum
+		sourceColumn: received_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column sold_stock
+		dataType: int64
+		formatString: 0
+		lineageTag: bd8f944a-f7a8-41b7-b832-584647b3aca2
+		summarizeBy: sum
+		sourceColumn: sold_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column damaged_stock
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ed9841f-25af-49d7-ada2-013214acea7c
+		summarizeBy: sum
+		sourceColumn: damaged_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column closing_stock
+		dataType: int64
+		formatString: 0
+		lineageTag: 9db36547-054f-4c34-b3a1-c88a3927910e
+		summarizeBy: sum
+		sourceColumn: closing_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventory_value
+		dataType: double
+		lineageTag: daeb9a87-6f29-4564-afd0-0988203bb22f
+		summarizeBy: sum
+		sourceColumn: inventory_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'nestasia_dwh fact_inventory' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_fact_inventory = Source{[Schema="nestasia_dwh",Item="fact_inventory"]}[Data]
+				in
+				    nestasia_dwh_fact_inventory
+
+	annotation PBI_ResultType = Table
+

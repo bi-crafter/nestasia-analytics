@@ -1,0 +1,39 @@
+table 'nestasia_dwh dim_shipping'
+	lineageTag: dd727396-c82b-4aeb-b801-7cf333597070
+
+	column shipping_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: f1ae1b75-04c9-4074-8c9e-ce941d10b0cb
+		summarizeBy: none
+		sourceColumn: shipping_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier
+		dataType: string
+		lineageTag: 03f552cb-2f56-4041-962d-6809037f4a3b
+		summarizeBy: none
+		sourceColumn: carrier
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_method
+		dataType: string
+		lineageTag: 5115a57a-1e3f-4009-bab1-8eea4190282d
+		summarizeBy: none
+		sourceColumn: shipping_method
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh dim_shipping' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_dim_shipping = Source{[Schema="nestasia_dwh",Item="dim_shipping"]}[Data]
+				in
+				    nestasia_dwh_dim_shipping
+
+	annotation PBI_ResultType = Table
+

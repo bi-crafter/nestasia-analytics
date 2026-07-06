@@ -1,0 +1,44 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["nestasia_dwh dim_campaign","nestasia_dwh dim_category","nestasia_dwh dim_customer","nestasia_dwh dim_date","nestasia_dwh dim_geography","nestasia_dwh dim_payment","nestasia_dwh dim_product","nestasia_dwh dim_seller","nestasia_dwh dim_shipping","nestasia_dwh fact_inventory","nestasia_dwh fact_marketing","nestasia_dwh dim_warehouse","nestasia_dwh fact_reviews","nestasia_dwh fact_returns","nestasia_dwh fact_payments","nestasia_dwh fact_sales","nestasia_dwh fact_shipping","nestasia_dwh customer_mapping","olist_products_dataset"]
+
+annotation PBI_RemovedChildren = [{"remoteItemId":{"foreignKeyRelationship":{"fromTableLocalLineageTag":"9630be12-b251-418c-952e-56f149983695","fromColumnLocalLineageTag":"81e53e49-deda-4f17-afcf-4f4f993ab786","toTableLocalLineageTag":"5fc377fa-cd8c-4053-8560-bcfbbd968bfe","toColumnLocalLineageTag":"38e3e865-58dc-4362-b2db-a5e641a7e8b7"}},"objectType":"Relationship"},{"remoteItemId":{"foreignKeyRelationship":{"fromTableLocalLineageTag":"b68dece0-d779-4af1-9e6e-d5b8e3cb6cbb","fromColumnLocalLineageTag":"1404f807-2301-4fa1-8cba-e696873819f6","toTableLocalLineageTag":"5fc377fa-cd8c-4053-8560-bcfbbd968bfe","toColumnLocalLineageTag":"38e3e865-58dc-4362-b2db-a5e641a7e8b7"}},"objectType":"Relationship"}]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'nestasia_dwh dim_campaign'
+ref table DateTableTemplate_6fd2083f-03ba-4470-9af9-0ace591194f2
+ref table LocalDateTable_3777c3c1-ffac-4a38-ba22-4013cd6b5004
+ref table LocalDateTable_dece8222-e516-4d7d-a3ae-706da850e0ed
+ref table 'nestasia_dwh dim_category'
+ref table 'nestasia_dwh dim_customer'
+ref table LocalDateTable_f1de68aa-425e-4253-8390-a07f3ed46b8c
+ref table 'nestasia_dwh dim_date'
+ref table 'nestasia_dwh dim_geography'
+ref table 'nestasia_dwh dim_payment'
+ref table 'nestasia_dwh dim_product'
+ref table LocalDateTable_ac515b31-db2c-4955-8420-a60c266cf1f5
+ref table 'nestasia_dwh dim_seller'
+ref table 'nestasia_dwh dim_shipping'
+ref table 'nestasia_dwh fact_inventory'
+ref table 'nestasia_dwh fact_marketing'
+ref table 'nestasia_dwh dim_warehouse'
+ref table 'nestasia_dwh fact_reviews'
+ref table 'nestasia_dwh fact_returns'
+ref table 'nestasia_dwh fact_payments'
+ref table 'nestasia_dwh fact_sales'
+ref table 'nestasia_dwh fact_shipping'
+ref table _Measures
+ref table 'nestasia_dwh customer_mapping'
+ref table olist_products_dataset
+
+ref cultureInfo en-US
+

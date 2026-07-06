@@ -1,0 +1,26 @@
+# Power BI Generated
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Python Virtual Environment
+.venv/
+env/
+venv/
+*.pyc
+__pycache__/
+
+# Data & Logs (Do NOT commit big raw datasets or database exports to Git!)
+data/
+logs/
+*.csv
+*.db
+*.sqlite3
+
+# Screenshots / Loose Assets (keeps repository small)
+*.png
+*.jpg
+*.jpeg
+
+# IDEs
+.vscode/
+.idea/

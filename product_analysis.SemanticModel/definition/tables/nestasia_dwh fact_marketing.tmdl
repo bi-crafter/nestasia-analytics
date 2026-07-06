@@ -1,0 +1,118 @@
+table 'nestasia_dwh fact_marketing'
+	lineageTag: 6ad9ebb9-a37b-440e-a505-5ee45dcb4a42
+
+	column marketing_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: dd60ee93-fcaa-42e3-8993-945f517fa4a0
+		summarizeBy: sum
+		sourceColumn: marketing_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: ce5ae429-0c4b-4526-abd5-fe56c14b2111
+		summarizeBy: none
+		sourceColumn: campaign_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 516aed7e-c35d-4983-8ff5-8d21efbdcdec
+		summarizeBy: none
+		sourceColumn: date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column spend
+		dataType: double
+		lineageTag: e5393a3b-5ebe-4b31-9bc5-c857bea2e210
+		summarizeBy: sum
+		sourceColumn: spend
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: 31a13bb4-f0eb-4d93-ad6c-adcf301492e3
+		summarizeBy: sum
+		sourceColumn: impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 90edf1d5-2883-4acc-9629-61911dcafbfb
+		summarizeBy: sum
+		sourceColumn: clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctr
+		dataType: double
+		lineageTag: 7785d7fe-307a-4deb-ba8e-cf046f89ceea
+		summarizeBy: sum
+		sourceColumn: ctr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column conversions
+		dataType: int64
+		formatString: 0
+		lineageTag: 84155660-2d6d-4e21-9ab9-c7374921e876
+		summarizeBy: sum
+		sourceColumn: conversions
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue
+		dataType: double
+		lineageTag: de0de563-364d-4004-8f5b-db7c8bcc2072
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column roas
+		dataType: double
+		lineageTag: 40e06a70-86ef-4124-89ff-19f28771fbda
+		summarizeBy: sum
+		sourceColumn: roas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cpa
+		dataType: double
+		lineageTag: f2d6f083-bb81-4529-8c16-42f3906eaf6e
+		summarizeBy: sum
+		sourceColumn: cpa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'nestasia_dwh fact_marketing' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_fact_marketing = Source{[Schema="nestasia_dwh",Item="fact_marketing"]}[Data]
+				in
+				    nestasia_dwh_fact_marketing
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,87 @@
+table 'nestasia_dwh fact_returns'
+	lineageTag: 563dd155-893e-4f32-a927-8a20e9cc378c
+
+	column return_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b3ddde8-7f62-4c23-87f9-33584488413c
+		summarizeBy: sum
+		sourceColumn: return_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: d7efca00-63f4-4edc-8ef8-3df5e6e3ffff
+		summarizeBy: none
+		sourceColumn: date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: a5f9543c-9c4b-46e0-a344-6128dd574878
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: cd49ce12-ebcc-461e-bebf-39342683901f
+		summarizeBy: sum
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason
+		dataType: string
+		lineageTag: a19d33c8-cfc1-447c-91b3-b9e15946e4df
+		summarizeBy: none
+		sourceColumn: reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_value
+		dataType: double
+		lineageTag: bdbdf7f5-b064-403c-9e45-57052f557484
+		summarizeBy: sum
+		sourceColumn: return_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column refund_amount
+		dataType: double
+		lineageTag: 8d3326be-1d1e-4d2d-bdde-1ffb3d33dfa3
+		summarizeBy: sum
+		sourceColumn: refund_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column days_to_return
+		dataType: int64
+		formatString: 0
+		lineageTag: aca1db9c-6e6a-4e18-9684-997d04f44b84
+		summarizeBy: sum
+		sourceColumn: days_to_return
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh fact_returns' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_fact_returns = Source{[Schema="nestasia_dwh",Item="fact_returns"]}[Data]
+				in
+				    nestasia_dwh_fact_returns
+
+	annotation PBI_ResultType = Table
+

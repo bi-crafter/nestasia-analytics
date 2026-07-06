@@ -1,0 +1,98 @@
+{
+  "name": "Nestasia Corporate Theme",
+  "dataColors": [
+    "#1A938A",
+    "#7341B2",
+    "#E98A25",
+    "#1873C7",
+    "#57A547",
+    "#C7382A",
+    "#F4D03F",
+    "#34495E"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0A1F35",
+  "tableAccent": "#1A938A",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#E5E7E9" } },
+            "radius": 8
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F4F6F7" } },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": { "solid": { "color": "#E5E7E9" } },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#0A1F35" } },
+            "fontSize": 24,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#5D6D7E" } },
+            "fontSize": 10,
+            "fontFamily": "Segoe UI"
+          }
+        ]
+      }
+    }
+  },
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#0A1F35",
+      "fontSize": 11
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#5D6D7E",
+      "fontSize": 9
+    },
+    "callout": {
+      "fontFace": "Segoe UI Bold",
+      "color": "#0A1F35",
+      "fontSize": 22
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1A938A",
+      "fontSize": 12
+    }
+  }
+}

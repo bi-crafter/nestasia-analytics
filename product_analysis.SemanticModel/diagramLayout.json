@@ -1,0 +1,281 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 263.37207767729194,
+        "y": 552.6080723406053
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1491.6062048693982,
+            "y": 1122.9797080996054
+          },
+          "nodeIndex": "nestasia_dwh dim_campaign",
+          "nodeLineageTag": "ed461f8e-1b54-41e5-8f5e-426ff27b8579",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1725.6062048693982,
+            "y": 788.34002806600256
+          },
+          "nodeIndex": "nestasia_dwh dim_category",
+          "nodeLineageTag": "c2665569-ae74-4b04-8765-649798c10cab",
+          "size": {
+            "height": 224.634001,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 594.61482149220478,
+            "y": 1025.0086683406055
+          },
+          "nodeIndex": "nestasia_dwh dim_customer",
+          "nodeLineageTag": "2e3c67b7-81ff-4d96-b213-dd04586230e1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 910.91119245400216,
+            "y": 996.45214726324116
+          },
+          "nodeIndex": "nestasia_dwh dim_date",
+          "nodeLineageTag": "c125955a-c5a5-483d-83fd-ecfbe76374e4",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50.071183608353977,
+            "y": 449.669390818447
+          },
+          "nodeIndex": "nestasia_dwh dim_geography",
+          "nodeLineageTag": "4ad7f274-6d3d-49a0-a507-04c33f7328d5",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 705.11433149118079
+          },
+          "nodeIndex": "nestasia_dwh dim_payment",
+          "nodeLineageTag": "b5c251b6-4d8d-462f-99ac-2c9193090be3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 630.36810069204648,
+            "y": 345.95467716312169
+          },
+          "nodeIndex": "nestasia_dwh dim_product",
+          "nodeLineageTag": "5fc377fa-cd8c-4053-8560-bcfbbd968bfe",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 291.0924458329639,
+            "y": 1198.3278180886159
+          },
+          "nodeIndex": "nestasia_dwh dim_seller",
+          "nodeLineageTag": "7f9208ed-5ea6-49dc-aa82-4a200a474402",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1179.3345801602304,
+            "y": 1319.8083280660026
+          },
+          "nodeIndex": "nestasia_dwh dim_shipping",
+          "nodeLineageTag": "dd727396-c82b-4aeb-b801-7cf333597070",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1413.4476809039591,
+            "y": -50
+          },
+          "nodeIndex": "nestasia_dwh dim_warehouse",
+          "nodeLineageTag": "702fb89a-b6b2-4b4a-89b9-cad9cb47bf59",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1139.0034666383206,
+            "y": 303.7284844995836
+          },
+          "nodeIndex": "nestasia_dwh fact_inventory",
+          "nodeLineageTag": "b68dece0-d779-4af1-9e6e-d5b8e3cb6cbb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1204.5248837068327,
+            "y": 927.26014004209219
+          },
+          "nodeIndex": "nestasia_dwh fact_marketing",
+          "nodeLineageTag": "6ad9ebb9-a37b-440e-a505-5ee45dcb4a42",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 849.77814139713337,
+            "y": 1378.3295100644959
+          },
+          "nodeIndex": "nestasia_dwh fact_payments",
+          "nodeLineageTag": "56a2693c-0a31-4266-b63c-807383db0b9d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 623.93545510403646,
+            "y": 699.47777203044325
+          },
+          "nodeIndex": "nestasia_dwh fact_returns",
+          "nodeLineageTag": "563dd155-893e-4f32-a927-8a20e9cc378c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 917.35562284803461,
+            "y": 657.15251478406844
+          },
+          "nodeIndex": "nestasia_dwh fact_reviews",
+          "nodeLineageTag": "9630be12-b251-418c-952e-56f149983695",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 337.15696123119642,
+            "y": 599.26083180461956
+          },
+          "nodeIndex": "nestasia_dwh fact_sales",
+          "nodeLineageTag": "48089ff5-4576-4440-a15b-4f788415a173",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 442.6755699996279,
+            "y": 1378.6800561320051
+          },
+          "nodeIndex": "nestasia_dwh fact_shipping",
+          "nodeLineageTag": "44444f76-fc43-46f5-a312-0ffbd751f5f9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1959.6062048693982,
+            "y": 764.34002806600256
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1467.2661948693985,
+            "y": 536.37743906600258
+          },
+          "nodeIndex": "nestasia_dwh customer_mapping",
+          "nodeLineageTag": "ea1a4138-63a5-413d-ae41-5d503b2a20c2",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1460.1799508693982,
+            "y": 796.06027306600254
+          },
+          "nodeIndex": "olist_products_dataset",
+          "nodeLineageTag": "b616ffb2-f37e-48d4-a08c-c2c5fcf27820",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 56.447393005377734,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

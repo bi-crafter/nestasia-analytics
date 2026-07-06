@@ -1,0 +1,30 @@
+table 'nestasia_dwh customer_mapping'
+	lineageTag: ea1a4138-63a5-413d-ae41-5d503b2a20c2
+
+	column customer_id
+		dataType: string
+		lineageTag: 50483abf-be55-4c23-8bb0-80798aa243bb
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 4f0dedbc-f8f6-43d3-8ae9-776e6d9d807b
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh customer_mapping' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_customer_mapping = Source{[Schema="nestasia_dwh",Item="customer_mapping"]}[Data]
+				in
+				    nestasia_dwh_customer_mapping
+
+	annotation PBI_ResultType = Table
+

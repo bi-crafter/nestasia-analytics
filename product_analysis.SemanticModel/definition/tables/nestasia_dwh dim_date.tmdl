@@ -1,0 +1,90 @@
+table 'nestasia_dwh dim_date'
+	lineageTag: c125955a-c5a5-483d-83fd-ecfbe76374e4
+	dataCategory: Time
+
+	column date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: da47344d-01bc-4a99-b1b7-f530dfc7bfc0
+		summarizeBy: none
+		sourceColumn: date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column full_date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 42c0349c-c1dc-40ff-8a47-1ef20fa7c4a3
+		summarizeBy: none
+		sourceColumn: full_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 77e67206-ef48-4e14-9448-9c0dd18b4ca6
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f403d86-c3b1-41dc-8235-a46fa5c282d5
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		lineageTag: f59a7cf3-1f5d-4e10-8035-177b1f501444
+		summarizeBy: sum
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 98045454-13ed-420c-b552-2c88838b0e78
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 8eab4c9b-71eb-457e-b73c-e1c4a9bc3ce0
+		summarizeBy: sum
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d299ea3f-f066-448f-b78c-814e86168ad4
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh dim_date' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_dim_date = Source{[Schema="nestasia_dwh",Item="dim_date"]}[Data]
+				in
+				    nestasia_dwh_dim_date
+
+	annotation PBI_ResultType = Table
+

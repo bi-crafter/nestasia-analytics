@@ -1,0 +1,120 @@
+table _Measures
+	lineageTag: 94b0b326-4867-4ebf-9be5-800266bfbf95
+
+	measure 'Gross Revenue' = SUM('nestasia_dwh fact_sales'[gross_sales])
+		lineageTag: ea400f52-5c48-472b-ad66-7e41aa8418e4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Revenue' = SUM('nestasia_dwh fact_sales'[net_sales])
+		lineageTag: 59af2a2c-c245-48be-a146-1282b00af417
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = DISTINCTCOUNT('nestasia_dwh fact_sales'[order_id])
+		formatString: 0
+		lineageTag: eea15f11-7951-417a-b1c2-dd11c89169fa
+
+	measure 'Total Units Sold' = SUM('nestasia_dwh fact_sales'[quantity])
+		formatString: 0
+		lineageTag: 79a7df1a-8fd2-4392-9dec-d1aef5b84a52
+
+	measure 'Average Order Value (AOV)' = DIVIDE([Net Revenue], [Total Orders], 0)
+		lineageTag: a4a286ef-e7ee-4937-9339-e0d5a892cddd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gross Profit' = SUM('nestasia_dwh fact_sales'[profit])
+		lineageTag: 59f4d422-dafc-4812-8a38-5a967bec829b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Profit Margin %' = DIVIDE([Gross Profit], [Net Revenue], 0)
+		lineageTag: 651fec65-9600-4aec-b15d-7ed86f1d852b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD Revenue' = TOTALYTD([Net Revenue], 'nestasia_dwh dim_date'[full_date])
+		lineageTag: 3c9e1250-d301-4150-8b01-d6190ddb8623
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MTD Revenue' = TOTALMTD([Net Revenue], 'nestasia_dwh dim_date'[full_date])
+		lineageTag: 124135fc-d4a6-4be4-9eb1-54aafd9e2bfc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue YoY %' = DIVIDE([Net Revenue] - CALCULATE([Net Revenue], SAMEPERIODLASTYEAR('nestasia_dwh dim_date'[full_date])), CALCULATE([Net Revenue], SAMEPERIODLASTYEAR('nestasia_dwh dim_date'[full_date])))
+		lineageTag: 1716f9c5-14b1-4203-92a3-f23a481c465f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Selling Price (ASP)' = DIVIDE([Net Revenue], [Total Units Sold])
+		lineageTag: 17a49cbc-87e1-4953-ab2a-608821332adc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Customers =
+			
+			DISTINCTCOUNT('nestasia_dwh fact_sales'[customer_sk])
+		formatString: 0
+		lineageTag: 0122885e-600c-475b-81b1-5c4bed6714f7
+
+	measure 'Return Rate' =
+			
+			DIVIDE(
+			COUNTROWS('nestasia_dwh fact_returns'),
+			[Total Orders]
+			)
+		lineageTag: 433b7ff6-e83c-41b3-8dc5-9fe4d058efe0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue LY' =
+			
+			CALCULATE(
+			[Net Revenue],
+			SAMEPERIODLASTYEAR('nestasia_dwh dim_date'[full_date])
+			)
+		lineageTag: 6c05e332-d928-4008-b19a-54eba588e60c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Repeat Customers' = ```
+			
+			CALCULATE(
+			    COUNTROWS(
+			        FILTER(
+			            VALUES('nestasia_dwh customer_mapping'[customer_unique_id]),
+			            CALCULATE(DISTINCTCOUNT('nestasia_dwh fact_sales'[order_id])) > 1
+			        )
+			    ),
+			    CROSSFILTER('nestasia_dwh customer_mapping'[customer_id], 'nestasia_dwh dim_customer'[customer_id], Both)
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 485b6914-2a00-46d2-b76f-136875ce5067
+
+	measure 'Purchase Frequency' = DIVIDE([Total Orders], [Customers], 0)
+		lineageTag: 55d8d2b4-2f57-4c0f-a991-c15ba1ebba52
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 3d9964c3-95b2-4241-a6d8-8989ac7eafd4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = df4d42c739004f249b68c3f5c650c781
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

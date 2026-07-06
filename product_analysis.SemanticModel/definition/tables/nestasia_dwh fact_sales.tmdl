@@ -1,0 +1,201 @@
+table 'nestasia_dwh fact_sales'
+	lineageTag: 48089ff5-4576-4440-a15b-4f788415a173
+
+	column sales_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f527308-8a3e-4f21-9920-a6495da89110
+		summarizeBy: sum
+		sourceColumn: sales_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: b8a61629-5117-47e2-9dc5-5e145005a03e
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f2c68f9-90bd-4e4c-8073-1a34dae91737
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 71f12eed-c4c8-4e38-99f2-96410de6bd24
+		summarizeBy: none
+		sourceColumn: date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: c797e24d-8865-4f96-902c-17fd7ef1bbe5
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 0319d384-c971-451e-b929-284e4d23104a
+		summarizeBy: none
+		sourceColumn: seller_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 89c018a7-ecc9-4fa3-9dbe-56dc75df9c0f
+		summarizeBy: none
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 22a571b0-57c4-4561-83a0-3462c6de9d00
+		summarizeBy: none
+		sourceColumn: payment_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: cc9c25d8-cece-4f24-af60-320883208617
+		summarizeBy: none
+		sourceColumn: geography_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 44da20de-50e6-4662-aa53-24521c137b7a
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: ae470afc-61c8-4c8a-b253-537e2751cc39
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount
+		dataType: double
+		lineageTag: 742d03ed-4556-4184-8076-fdf8db2f21ec
+		summarizeBy: sum
+		sourceColumn: discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_cost
+		dataType: double
+		lineageTag: 8a32cf58-c80b-4ec5-8e6a-19c63c201698
+		summarizeBy: sum
+		sourceColumn: freight_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_price
+		dataType: double
+		lineageTag: 7df94ad0-d496-413d-817e-81d1569d6fa3
+		summarizeBy: sum
+		sourceColumn: cost_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_sales
+		dataType: double
+		lineageTag: c3128016-b90a-401a-ba10-c768960cd414
+		summarizeBy: sum
+		sourceColumn: gross_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_sales
+		dataType: double
+		lineageTag: bc67a902-bf64-438d-a0d9-00ff3728501e
+		summarizeBy: sum
+		sourceColumn: net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profit
+		dataType: double
+		lineageTag: c87d27da-e433-4c60-a7e5-93055b2b490a
+		summarizeBy: sum
+		sourceColumn: profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margin
+		dataType: double
+		lineageTag: 71f1f750-9d0a-450e-bfc9-4fad269e85cb
+		summarizeBy: sum
+		sourceColumn: margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column delivery_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a3328cc-d757-456b-ab15-baa3a86aab56
+		summarizeBy: sum
+		sourceColumn: delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_delivered
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 094c7cdf-6e73-4f44-a9f4-57ff5f48f7b9
+		summarizeBy: none
+		sourceColumn: is_delivered
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'nestasia_dwh fact_sales' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("localhost", "nestasia_dwh", [ReturnSingleDatabase=true]),
+				    nestasia_dwh_fact_sales = Source{[Schema="nestasia_dwh",Item="fact_sales"]}[Data]
+				in
+				    nestasia_dwh_fact_sales
+
+	annotation PBI_ResultType = Table
+
