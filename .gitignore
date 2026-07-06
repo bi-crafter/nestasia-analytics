@@ -17,9 +17,9 @@ logs/
 *.sqlite3
 
 # Screenshots / Loose Assets (keeps repository small)
-*.png
-*.jpg
-*.jpeg
+
+
+
 
 # IDEs
 .vscode/
